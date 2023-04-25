@@ -1,20 +1,29 @@
-//Variable arguments and for each loop
-class VDemo{
-	void show(int...x)//ellipses .. we can provide n no of parameters
-	{
-		for (int i : x)
-		{
-			System.out.println(i);
-		}
-	}
-}
-
-
+//Hashtable
+package collection;
+import java.util.*;
 public class Demo11 {
-public static void main(String[] args) {
-	VDemo v1 = new VDemo();
-	v1.show();
-	v1.show(1,2,3);
-	v1.show(10,20,30,40,50,60,70,80,90,100);
+
+	public static void main(String[] args) {
+		Map m=new Hashtable();
+		m.put(12, "Pune");
+		m.put('A', 5.2f);
+		m.put(36.21, 54);
+		System.out.println(m);
+		System.out.println(m.size());
+		System.out.println(m.isEmpty());
+		System.out.println(m.containsValue(58));
+		System.out.println(m);
+		Map m1=new HashMap();
+		m1.put(45, "ABC");
+		m1.put('D', 57);
+		m1.put(78, 45);
+		System.out.println(m1);
+		System.out.println(m);
+		m.clear();
+		System.out.println(m);
+		System.out.println(m.isEmpty());
+
+	}
+
 }
-}
+

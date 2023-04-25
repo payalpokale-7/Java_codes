@@ -1,32 +1,21 @@
-class Vish{
-	void add(int...x)
-	{
-		int sum=0;
-		for(int i: x) {
-			
-			{
-				sum=sum+i;
-			}
-			System.out.println("Sum of int=" + sum);
-			}
-	}
-		void add1(float...f)
-		{
-			float sum=0;
-			for(float i:f)
-			{
-				sum=sum+i;
-			}
-			System.out.println("Sum of float=" +sum);
-		}
-	}
-
+//set with Generic
+package collection;
+import java.util.*;
 public class Demo13 {
 
 	public static void main(String[] args) {
-		Vish d1=new Vish();
-		d1.add(1,2,3,4,5);
-		d1.add1(1,1.2f,2.5f);
+		Set <Float>s=new HashSet<Float>();
+		s.add(52.1f);
+		s.add(3.6f);
+		s.add(3.2f);
+		s.add(5.6f);
+		s.add(8.9f);
+		System.out.println(s);
+		Iterator <Float>i=s.iterator();
+		while(i.hasNext())
+		{
+			System.out.println(i.next());
+		}
 
 	}
 
