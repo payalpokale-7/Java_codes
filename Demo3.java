@@ -1,16 +1,15 @@
-package file;
-import java.io.*;
+package wrapperandstring;
+
 public class Demo3 {
 
-	public static void main(String[] args) throws IOException {
-		InputStreamReader isr=new InputStreamReader(System.in);
-		BufferedReader br=new BufferedReader(isr);
-		System.out.println("Enter a String");
-		String s=br.readLine();
-		System.out.println(s);
-		System.out.println("Enter a no");
-		String s1=br.readLine();
-		int x=Integer.parseInt(s1);
-		System.out.println("Square="+(x*x));
+	public static void main(String[] args) {
+		StringBuffer sb=new StringBuffer("Profound");
+		System.out.println(sb.append("Edutech"));
+		System.out.println(sb.insert(0, "IT"));
+		System.out.println(sb.delete(2, 10));
+		System.out.println(sb.replace(0, 2, "Profound"));
+		System.out.println(sb.reverse());
+
 	}
+
 }
