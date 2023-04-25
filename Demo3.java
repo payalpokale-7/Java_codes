@@ -1,14 +1,31 @@
-package wrapperandstring;
+package multithreding;
+class MyThreads extends Thread{
+
+	@Override
+	public void run() {
+		
+		super.run();
+		System.out.println("In run()"+" "+Thread.currentThread()+" "+getName()+" "+"has"+" "+getPriority()+" "+"Priority");
+	}
+	
+}
 
 public class Demo3 {
 
 	public static void main(String[] args) {
-		StringBuffer sb=new StringBuffer("Profound");
-		System.out.println(sb.append("Edutech"));
-		System.out.println(sb.insert(0, "IT"));
-		System.out.println(sb.delete(2, 10));
-		System.out.println(sb.replace(0, 2, "Profound"));
-		System.out.println(sb.reverse());
+		MyThreads m1=new MyThreads();
+		m1.setName("one");
+		m1.setPriority(Thread.MAX_PRIORITY);
+		MyThreads m2=new MyThreads();
+		m2.setName("Two");
+		m2.setPriority(Thread.MIN_PRIORITY);
+		MyThreads m3=new MyThreads();
+		m3.setName("Third");
+		m3.setPriority(Thread.NORM_PRIORITY);
+		m1.start();
+		System.out.println(m1.isAlive());
+		m2.start();
+		m3.start();
 
 	}
 

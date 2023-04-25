@@ -1,33 +1,59 @@
-//LinkedList
-package collection;
+package multithreding;
 import java.util.*;
+class BankAppDemo extends Thread
+{
+	static int bal;
+	void get() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Balance");
+		bal=sc.nextInt();
+	}
+	synchronized static void withdraw(int amt)
+	{
+		System.out.println(Thread.currentThread()+" is accessing");
+		if(bal<amt)
+		{
+			System.out.println("Insufficient balance in account");
+		}
+		else
+		{
+			bal=bal-amt;
+			if(bal<5000)
+			{
+				System.out.println("Minimum balance in Account must"+" be Rs.5000"+Thread.currentThread());
+			}
+			else {
+				
+				System.out.println("Transaction successfull by "+Thread.currentThread()+" Balance is "+bal);
+			}
+		}
+		}
+	@Override
+	public void run() {
+		for(int i=1;i<=5;i++)
+		{
+			try {
+				Thread.sleep(2500);
+				withdraw(2500);
+			}
+			catch(Exception e) {
+				System.out.println(e);
+			}
+		}
+		super.run();
+	}
+	
+}
 public class Demo7 {
 
 	public static void main(String[] args) {
-		List l=new LinkedList();
-		l.add(52);
-		l.add("Pune");
-		l.add(5.3f);
-		l.add('A');
-		l.add(52);
-		System.out.println(l);
-		System.out.println(l.size());
-		System.out.println(l.isEmpty());
-		Object o[]=l.toArray();
-		for(Object i:o) {
-			System.out.println(i);
-		}
-		System.out.println(l.get(2));
-		System.out.println(l.lastIndexOf(52));
-		List l1=l.subList(1, 4);
-		System.out.println(l1);
-		l.remove(null);
-		System.out.println(l);
-		l.clear();
-		System.out.println(l);
-		System.out.println(l.isEmpty());
-
+		BankAppDemo b1=new BankAppDemo();
+		b1.setName("Ram");
+		b1.get();
+		b1.start();
+		BankAppDemo b2=new BankAppDemo();
+		b2.setName("Shyam");
+		b2.get();
+		b2.start();
 	}
-
 }
-
